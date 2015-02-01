@@ -113,7 +113,7 @@ bot.addListener("message", function(from, to, message) {
   }
 
   // tracking XX version, how many assigned to nobody
-  if (message.indexOf("tracking nobody") > -1) {
+  if (message.indexOf("nobody") > -1) {
     // TODO: esr needs a _ in front, eg: cf_status_firefox_esr31
     var version = message.split(/[, ]+/).pop();
     var tracking = "cf_tracking_firefox" + version
