@@ -1,9 +1,9 @@
 {
-  "author": "Margaret Leibovic",
-  "name": "fennecbot",
+  "author": "Lukas Blakk",
+  "name": "relmanbot",
   "version": "0.0.1",
   "repository": {
-    "url": "https://github.com/leibovic/fennecbot"
+    "url": "https://github.com/lsblakk/relmanbot"
   },
   "dependencies": {
     "bz": "*",

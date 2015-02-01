@@ -1,7 +1,7 @@
 {
-	"channels": ["#mobile"],
+	"channels": ["#relman"],
 	"server": "irc.mozilla.org",
-	"botName": "fennecbot",
+	"botName": "relmanbot",
 	"port": "6697",
 	"secure": "true"
 }
