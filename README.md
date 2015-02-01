@@ -11,3 +11,12 @@ To install / run:
 * node server.js
 
 To be polite, please create your own private IRC channel for testing.
+
+
+deploying
+=========
+
+I've deployed it on a raspberry pi with forever (https://www.npmjs.com/package/forever)
+
+* [sudo] npm install forever -g
+* forever start -l forever.log -o out.log -e err.log server.js
