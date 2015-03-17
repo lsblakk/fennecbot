@@ -34,7 +34,11 @@ function bugCountList(from, to, search) {
       return;
     }
 
-    bot.say(to, from + ": There are " + bugs.length + " public bugs for that request.");
+    if (bugs.length === 1){
+      bot.say(to, from + ": There is " + bugs.length + " public bug for that request.");
+    } else {
+      bot.say(to, from + ": There are " + bugs.length + " public bugs for that request.");
+    }
     var url = "https://bugzilla.mozilla.org/buglist.cgi?" + bugzilla.urlEncode(search);
     bot.say(to,  "LINK: " + url);
 
@@ -45,7 +49,7 @@ function bugCountList(from, to, search) {
 bot.addListener("message", function(from, to, message) {
   if (message.indexOf(bot.nick) === 0) {
     if (message.split(/[, ]+/).length === 1){
-      bot.say(to, "Hi!  What do you need?");
+      bot.say(to, "Hi!  Try 'help' for a list of commands.");
       return;
     }
   }
@@ -73,6 +77,19 @@ bot.addListener("message", function(from, to, message) {
   // link to the public calendar of merge & release dates
   if (message.indexOf("cal") > -1) {
     bot.say(to, from + ": Release & Merge Day calendar http://bit.ly/1DlbjVc");
+    return;
+  }
+
+    // link to the public calendar of merge & release dates
+  if (message.indexOf("help") > -1) {
+    var message = "\nTry these commands (addressed to me): \n \
+  Frequent links: 'cal', 'sched', 'notes' \n \
+  Bug Info & URL: 'bug <bugnumber>' \n \
+  Count & Bugzilla URL: \n\n \
+    'track <version>' \n \
+    'nom <version>' \n \
+    'nobody <version>'";
+    bot.say(to, from + message);
     return;
   }
 
@@ -113,7 +130,7 @@ bot.addListener("message", function(from, to, message) {
   }
 
   // tracking XX version, how many assigned to nobody
-  if (message.indexOf("tracking nobody") > -1) {
+  if (message.indexOf("nobody") > -1) {
     // TODO: esr needs a _ in front, eg: cf_status_firefox_esr31
     var version = message.split(/[, ]+/).pop();
     var tracking = "cf_tracking_firefox" + version

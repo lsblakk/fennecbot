@@ -1,5 +1,5 @@
 {
-	"channels": ["#relman"],
+	"channels": ["#bot-test"],
 	"server": "irc.mozilla.org",
 	"botName": "relmanbot",
 	"port": "6697",
